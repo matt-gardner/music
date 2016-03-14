@@ -5,9 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 import com.gardner.music.core.*;
+import com.gardner.music.transcription.TranscribedNote;
 
 public class NoteAligner {
-    private List<MusicNote> musicNotes;
+    private List<Note> musicNotes;
     private List<TranscribedNote> transcribedNotes;
     private int lastTranscribedNote;
     private byte[][] alignment;
@@ -19,7 +20,7 @@ public class NoteAligner {
     private byte TRANSCRIBED_NOTE_ADDED = 2;
     private byte NOTES_ALIGNED = 3;
 
-    public NoteAligner(SheetMusic music) {
+    public NoteAligner(Voice music) {
         musicNotes = music.getNotes();
         transcribedNotes = new ArrayList<TranscribedNote>();
         lastTranscribedNote = 0;
@@ -147,7 +148,7 @@ public class NoteAligner {
     private double noteAlignCost(int t_index, int m_index) {
         // Guiding principle: length of note is more important than pitch, but not by a lot.  If
         // the notes are off by an octave, maybe the transcription just got the octave wrong.
-        MusicNote m = musicNotes.get(m_index);
+        Note m = musicNotes.get(m_index);
         TranscribedNote t = transcribedNotes.get(t_index);
         double cost = 0.0;
         if (secondsPerBeat != -1) {

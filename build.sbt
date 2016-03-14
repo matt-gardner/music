@@ -11,7 +11,8 @@ scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 javacOptions ++= Seq("-Xlint:unchecked")
 
 libraryDependencies ++= Seq(
-  "com.github.rwl" % "jtransforms" % "2.4.0"
+  "com.github.rwl" % "jtransforms" % "2.4.0",
+  "org.scalatest" %% "scalatest" % "2.2.1" % "test"
 )
 
 testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-oD")
