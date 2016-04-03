@@ -12,6 +12,10 @@ javacOptions ++= Seq("-Xlint:unchecked")
 
 libraryDependencies ++= Seq(
   "com.github.rwl" % "jtransforms" % "2.4.0",
+  "org.deeplearning4j" % "deeplearning4j-core" % "0.4-rc3.8",
+  "org.deeplearning4j" % "deeplearning4j-nlp" % "0.4-rc3.8",
+  "org.nd4j" % "nd4j-x86" % "0.4-rc3.8",
+  "org.nd4j" % "canova-api" % "0.0.0.14",
   "org.scalatest" %% "scalatest" % "2.2.1" % "test"
 )
 
